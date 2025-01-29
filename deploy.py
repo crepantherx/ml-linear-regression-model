@@ -3,8 +3,7 @@ import pickle
 import numpy as np
 
 # Load the saved model
-with open("linear_model.pkl", "rb") as f:
-    model = pickle.load(f)
+
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -23,6 +22,9 @@ def predict():
 
         # Convert input to a NumPy array
         input_data = np.array(data["input"]).reshape(-1, 1)
+
+        with open("linear_model.pkl", "rb") as f:
+            model = pickle.load(f)
 
         # Make a prediction
         prediction = model.predict(input_data).tolist()
