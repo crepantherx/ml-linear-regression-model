@@ -15,10 +15,70 @@ class Inputs(BaseModel):
 @app.get("/", response_class=HTMLResponse)
 def read_root():
     return '''
-        <form method="post" action="/predict">
-            <input name="input" type="text" placeholder="Enter numbers comma-separated">
-            <input type="submit">
-        </form>
+<html>
+            <head>
+                <title>ML Model Predictor</title>
+                <style>
+                body {
+                    background-color: #fafafa;
+                    font-family: Arial, sans-serif;
+                    padding: 30px;
+                }
+                # .container {
+                #     display: grid;
+                #     place-items: center;
+                #     justify-content: center;
+                #     align-items: center;
+                #     padding: 20px;
+                #     border-radius: 8px;
+                #     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                #     background-color: #ffffff;
+                #     max-width: 1000px;
+                #     margin: 0 auto;
+                # }
+                form {
+                    display: grid;
+                    place-items: center;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                    background-color: #ffffff;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+                input[type="text"] {
+                    margin-top: 20px;
+                    padding: 10px;
+                    width: 100%;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                }
+                input[type="submit"] {
+                    margin-top: 20px;
+                    background-color: #007BFF;
+                    color: #ffffff;
+                    padding: 10px 24px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    
+                    <form method="post" action="/predict">
+                    <h1>Proof Of Concept</h1>
+                     <h3>for machine learning model usability via web</h3>
+                        <input name="input" type="text" placeholder="Enter numbers comma-separated">
+                        <input type="submit" value="Predict">
+                    </form>
+                </div>
+            </body>
+        </html>
     '''
 
 
